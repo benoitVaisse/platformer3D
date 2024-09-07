@@ -6,7 +6,7 @@ namespace scripts.coins
 {
     public class CoinAnim : MonoBehaviour
     {
-        public Vector3 rotation = new(0, -125, 0);
+        public Vector3 rotation;
         public Vector3 up = new(0,0,0);
         // Update is called once per frame
         void Update()

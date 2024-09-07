@@ -41,7 +41,7 @@ public class ScriptManager : MonoBehaviour
 
     public void InitHeart()
     {
-        PlayerController playerController = GameObject.Find(PLAYEROBJECTNAME).GetComponent<PlayerController>();
+        PlayerLifeSystem playerController = GameObject.Find(PLAYEROBJECTNAME).GetComponent<PlayerLifeSystem>();
         for (int i = 1; i<= playerController.life; i++)
         {
             canvas.transform.Find($"heart{i}").GetComponent<Image>().sprite = heart;

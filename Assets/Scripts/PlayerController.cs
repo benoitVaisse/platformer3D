@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isWalking = false;
 
-    public int life;
+    
     public int coins;
 
     [SerializeField]

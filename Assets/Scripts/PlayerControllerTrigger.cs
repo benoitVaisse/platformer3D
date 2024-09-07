@@ -8,10 +8,12 @@ public class PlayerControllerTrigger : MonoBehaviour
     private bool _isInvinsible = false;
 
     public PlayerController playerController;
+    public PlayerLifeSystem playerLifeSystem;
 
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
+        playerLifeSystem = GetComponent<PlayerLifeSystem>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -48,7 +50,13 @@ public class PlayerControllerTrigger : MonoBehaviour
     public void HittingDammage()
     {
         AddCoins(-1);
-        ScriptManager.GetInstance().SetUIlife(playerController.life--, false);
+        ScriptManager.GetInstance().SetUIlife(playerLifeSystem.life--, false);
+        if(playerLifeSystem.IsDead())
+        {
+            playerLifeSystem.Respawn();
+            playerLifeSystem.life = 3;
+            ScriptManager.GetInstance().InitHeart();
+        }
         _isInvinsible = true;
         StartCoroutine(nameof(ResetInvinsible));
 
