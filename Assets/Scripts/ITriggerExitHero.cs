@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITriggerHero
+public interface ITriggerExitHero
 {
-    public void Action(GameObject hero);
+    public void ActionExit(GameObject hero);
 }

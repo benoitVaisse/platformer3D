@@ -5,10 +5,10 @@ using UnityEngine.UIElements;
 
 namespace scripts.checkPoint
 {
-    public class CheckPoint : MonoBehaviour, ITriggerHero
+    public class CheckPoint : MonoBehaviour, ITriggerEnterHero
     {
         private bool _isTouched = false;
-        public void Action(GameObject hero)
+        public void ActionEnter(GameObject hero)
         {
             Debug.Log("checpoint");
             hero.GetComponent<PlayerLifeSystem>().SetRespawnPosition(transform.position);

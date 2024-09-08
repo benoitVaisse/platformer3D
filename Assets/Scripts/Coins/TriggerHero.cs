@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 namespace scripts.coins
 {
-    public class TriggerHero : MonoBehaviour, ITriggerHero
+    public class TriggerHero : MonoBehaviour, ITriggerEnterHero
     {
         private const string PATH_EFFECT_COIN_PARTICUL = "Assets/Prefabs/Particules/CoinParticule.prefab";
         [SerializeField]
@@ -19,7 +19,7 @@ namespace scripts.coins
             _audioSource = GetComponent<AudioSource>();
             _coinAnim = GetComponent<CoinAnim>();
         }
-        public void Action(GameObject hero)
+        public void ActionEnter(GameObject hero)
         {
             hero.GetComponent<PlayerControllerTrigger>().AddCoins(1);
             gameObject.GetComponent<BoxCollider>().enabled = false;

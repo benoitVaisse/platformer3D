@@ -64,4 +64,12 @@ public class ScriptManager : MonoBehaviour
             text.SetText(coin.ToString().PadLeft(2, '0'));
         }
     }
+
+    public void SetTextInfo(string text)
+    {
+        if (canvas.transform.Find($"TextInfo") is Transform textInfoTransform && textInfoTransform.GetComponent<TMP_Text>() is TMP_Text textInfo)
+        {
+            textInfo.SetText(text);
+        }
+    }
 }

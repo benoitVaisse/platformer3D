@@ -17,8 +17,8 @@ public class PlayerControllerTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        ITriggerHero triggerHero = other.GetComponent<ITriggerHero>();
-        triggerHero?.Action(gameObject);
+        ITriggerEnterHero triggerHero = other.GetComponent<ITriggerEnterHero>();
+        triggerHero?.ActionEnter(gameObject);
 
         ICameraManager cameraManager = other.GetComponent<ICameraManager>();
         cameraManager?.ActionEnter();
@@ -28,6 +28,9 @@ public class PlayerControllerTrigger : MonoBehaviour
     {
         ICameraManager cameraManager = other.GetComponent<ICameraManager>();
         cameraManager?.ActionExit();
+
+        ITriggerExitHero triggerExit = other.GetComponent<ITriggerExitHero>();
+        triggerExit?.ActionExit(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
